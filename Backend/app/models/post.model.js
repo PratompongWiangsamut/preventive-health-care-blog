@@ -72,4 +72,4 @@ Post.remove = (id, result) => {
   });
 };
 
-module.exports = Customer;
+module.exports = Post;
