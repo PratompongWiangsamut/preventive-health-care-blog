@@ -78,11 +78,11 @@ const styles = theme => ({
 const infos = [
   {
     icon: <PhoneIcon />,
-    description: "+1 555 123456"
+    description: "+66 123 456789"
   },
   {
     icon: <MailIcon />,
-    description: "support@company.com"
+    description: "dummy@phcblog.web"
   }
 ];
 
