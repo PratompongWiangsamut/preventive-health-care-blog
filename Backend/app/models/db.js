@@ -35,8 +35,8 @@ db.tag = require('./tag')(sequelize,Sequelize)
 db.user.hasMany(db.post, {foreignKey: 'uid', sourceKey: 'uid'})
 db.post.belongsTo(db.user, {foreignKey: 'uid', sourceKey: 'uid'})
 
-//db.tag.hasMany(db.post, {foreignKey: 'tid', sourceKey: 'tid'})
-//db.post.belongsTo(db.tag, {foreignKey: 'tid', sourceKey: 'tid'})
+db.tag.hasMany(db.post, {foreignKey: 'tid', sourceKey: 'tid'})
+db.post.belongsTo(db.tag, {foreignKey: 'tid', sourceKey: 'tid'})
 
 
 //comment part
