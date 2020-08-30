@@ -4,6 +4,7 @@ const sql = require("./db.js");
 const Post = function(post) {
   this.title = post.title;
   this.tag = post.tag;
+  this.tex = post.tex;
   this.belong = post.belong;
   this.rank = post.rank;
 };
@@ -16,7 +17,7 @@ Post.create = (newPost, result) => {
       return;
     }
 
-    console.log("created post: ", { id: res.insertId, ...newCustomer });
+    console.log("created post: ", { id: res.insertId, ...newPost });
     result(null, { id: res.insertId, ...newPost });
   });
 };
@@ -70,6 +71,29 @@ Post.remove = (id, result) => {
     console.log("deleted post with id: ", id);
     result(null, res);
   });
+};
+
+Post.updateById = (id, post, result) => {
+  sql.query(
+    "UPDATE post SET rank = ? WHERE id = ?",
+    [post.rank, id],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Post with the id
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
+      console.log("updated rank post: ", { id: id, ...user });
+      result(null, { id: id, ...user });
+    }
+  );
 };
 
 module.exports = Post;

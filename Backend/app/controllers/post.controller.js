@@ -1,4 +1,4 @@
-const Customer = require("../models/post.model.js");
+const Post = require("../models/post.model.js");
 
 // Create and Save a new Post
 exports.create = (req, res) => {
@@ -36,7 +36,7 @@ exports.findAll = (req, res) => {
         message:
           err.message || "Some error occurred while retrieving post."
       });
-    else res.send(data);
+    else res.status(200).send(data);
   });
 };
 
@@ -72,4 +72,32 @@ exports.delete = (req, res) => {
       }
     } else res.send({ message: `Post was deleted successfully!` });
   });
+};
+
+// Update a Customer identified by the customerId in the request
+exports.update = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+  }
+
+  Post.updateById(
+    req.params.postId,
+    new Customer(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `Not found Post with id ${req.params.postId}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "Error updating Post with id " + req.params.postId
+          });
+        }
+      } else res.send(data);
+    }
+  );
 };

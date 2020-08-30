@@ -1,4 +1,5 @@
-const sql = require("./db.js");
+const db = require("./db.js");
+const sql = db.user.sequelize
 
 //constructor
 const User = function(user) {
@@ -40,8 +41,8 @@ User.findById = (userId, result) => {
   });
 };
 
-Post.getAll = result => {
-  sql.query("SELECT * FROM post", (err, res) => {
+User.getAll = result => {
+  sql.query("SELECT * FROM user", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -50,6 +51,7 @@ Post.getAll = result => {
 
     console.log("user: ", res);
     result(null, res);
+    //return res.status(200).send(res)
   });
 };
 
@@ -74,8 +76,8 @@ User.remove = (id, result) => {
 
 User.updateById = (id, user, result) => {
   sql.query(
-    "UPDATE customers SET name = ?, email = ?, password = ?, role = ? WHERE id = ?",
-    [customer.name,user.email, customer.password, customer.role, id],
+    "UPDATE user SET name = ?, email = ?, password = ?, role = ? WHERE id = ?",
+    [user.name,user.email, customer.password, customer.role, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
