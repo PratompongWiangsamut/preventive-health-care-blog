@@ -3,8 +3,11 @@
     "",
     "\\Frontend",
     "\\Frontend\\public",
-    "\\Frontend\\src"
+    "\\Frontend\\src",
+    "\\Frontend\\src\\logged_out",
+    "\\Frontend\\src\\logged_out\\components",
+    "\\Frontend\\src\\logged_out\\components\\home"
   ],
-  "SelectedNode": "\\Frontend\\public\\index.html",
+  "SelectedNode": "\\Frontend\\src\\logged_out\\components\\home\\Home.js",
   "PreviewInSolutionExplorer": false
 }

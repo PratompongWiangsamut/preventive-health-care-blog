@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { Typography } from "@material-ui/core";
-import blogPost1 from "./images/blogPost1.jpg";
-import blogPost2 from "./images/blogPost2.jpg";
-import blogPost3 from "./images/blogPost3.jpg";
+import blogPost1 from "./images/peepee.png";
+import blogPost2 from "./images/limesoda.png";
+import blogPost3 from "./images/manaokaangoo.png";
 import blogPost4 from "./images/blogPost4.jpg";
 import blogPost5 from "./images/blogPost5.jpg";
 import blogPost6 from "./images/blogPost6.jpg";
@@ -10,11 +10,10 @@ import blogPost6 from "./images/blogPost6.jpg";
 const content = (
   <Fragment>
     <Typography variant="h6" paragraph>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-      eirmod tempor invidunt ut labore.
+      มะนาวโซดาด๊าดา
     </Typography>
     <Typography paragraph>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      มะนาว มะน้าว มะนาว Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
       eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
       voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
       clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
@@ -25,7 +24,7 @@ const content = (
       sit amet.
     </Typography>
     <Typography paragraph>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      มะเร็งเง็งงอง Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
       eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
       voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
       clita kasd gubergren, no sea takimata sanctus est Lorem.
@@ -34,7 +33,7 @@ const content = (
       Title
     </Typography>
     <Typography paragraph>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      อะไรล่ะเนี่ย Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
       eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
       voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
       clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
@@ -92,30 +91,30 @@ const content = (
 
 export default [
   {
-    title: "Post 1",
+    title: "Urine is the ultimate medicine?",
     id: 1,
     date: 1576281600,
     imageSrc: blogPost1,
     snippet:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine Urine.",
     content: content
   },
   {
-    title: "Post 2",
+    title: "มะนาวโซดารักษามะเร็ง?",
     id: 2,
     date: 1576391600,
     imageSrc: blogPost2,
     snippet:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "ทดสอบภาษาไทยด้วยมะนาวโซดารักษามะเร็ง งองแงง งึกงือ มยื้อ",
     content: content
   },
   {
-    title: "Post 3",
+    title: "บีบมะนาวฆ่างู",
     id: 3,
     date: 1577391600,
     imageSrc: blogPost3,
     snippet:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "ทำไมคนเราเชื่อเพลงกันง่ายยังงี้อ่ะ โปเกม่อนบีบมะนาวฆ่างู",
     content: content
   },
   {
