@@ -9,10 +9,7 @@ module.exports = (sequelize, Sequelize)=>{
             type: Sequelize.STRING(40),
             allowNull: false
         },
-        tag: {
-            type: Sequelize.STRING(40),
-            allowNull: false
-        },
+        
         tex: {
             type: Sequelize.STRING(40),
             allowNull: false
@@ -24,8 +21,3 @@ module.exports = (sequelize, Sequelize)=>{
     })
     return Post
 }
-/*this.title = post.title;
-this.tag = post.tag;
-this.tex = post.tex;
-this.belong = post.belong;
-this.rank = post.rank;*/
