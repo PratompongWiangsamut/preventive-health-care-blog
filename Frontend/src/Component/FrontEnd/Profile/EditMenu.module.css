@@ -1,0 +1,17 @@
+.EditMenu {
+  width: 500px;
+  padding: 16px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  margin: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.EditMenu .NewTable {
+  cursor: pointer;
+}
+.EditMenu .NewTable:hover,
+.More:active {
+  border: 3px solid #3e48cc;
+  color: white;
+}
