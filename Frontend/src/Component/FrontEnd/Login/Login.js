@@ -1,9 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
-export default function EditMenupop(props) {
-  return (
-    <div>
-        <Form>
+
+export default class Write extends Component {
+ 
+  render() {
+    return (
+      <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+      <div >
+        
+      <Form>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" />
@@ -23,6 +34,11 @@ export default function EditMenupop(props) {
                 Submit
             </Button>
         </Form>
-    </div>
-  );
+      </div>
+      
+      </div>
+    );
+    
+  }
 }
+

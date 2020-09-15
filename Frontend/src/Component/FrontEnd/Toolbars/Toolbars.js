@@ -8,18 +8,16 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import Home from "../Home/Home";
-import Status from "../Write/Write";
-import Edit from "../Profile/Profile";
+import Write from "../Write/Write";
+import Profile from "../Profile/Profile";
+import Login from "../Login/Login";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-import Login from "./LoginMenupop";
-const Aux = (props) => {
-  return props.children;
-};
+
+
 
 
 
 export default function Toolbars() {
-  
   return (
     <Router>
       <div>
@@ -30,7 +28,7 @@ export default function Toolbars() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
                 <DropdownButton id="dropdown-basic-button" title="แท็ก">
-                    <Dropdown.Item href="/edit">การกิน</Dropdown.Item>
+                    <Dropdown.Item href="/profile">การกิน</Dropdown.Item>
                     <Dropdown.Item href="#/action-1">การออกกำลังกาย</Dropdown.Item>
                     <Dropdown.Item href="#/action-2">การพักผ่อน</Dropdown.Item>
                     <Dropdown.Item href="#/action-3">การใช้ชีวิต</Dropdown.Item>
@@ -39,7 +37,7 @@ export default function Toolbars() {
                   <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                    <Button variant="outline-success">Search</Button>
                 </Form>
-                <Nav.Link href="/status">เขียนบทความ</Nav.Link>
+                <Nav.Link href="/write">เขียนบทความ</Nav.Link>
                   <div
                     style={{
                       display: "flex",
@@ -48,8 +46,8 @@ export default function Toolbars() {
                     }}
                   >
                     <DropdownButton id="dropdown-basic-button" title="Login">
-                    <Dropdown.Item href="/edit">Profile</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Login</Dropdown.Item>
+                    <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                      <Dropdown.Item href="/login">Login</Dropdown.Item>
                     <Dropdown.Item href="#/action-2">Admin</Dropdown.Item>
                     </DropdownButton>
                   </div>
@@ -60,8 +58,9 @@ export default function Toolbars() {
           </Navbar>
         </header>
         <Route path="/home" component={Home} />
-        <Route path="/status" component={Status} />
-        <Route path="/edit" component={Edit} />
+        <Route path="/write" component={Write} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/login" component={Login} />
       </div>
     </Router>
   );

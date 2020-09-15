@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import classes from "./Write.module.css";
 import { Form } from "react-bootstrap";
 
-export default class Status extends Component {
+export default class Write extends Component {
  
   render() {
     return (

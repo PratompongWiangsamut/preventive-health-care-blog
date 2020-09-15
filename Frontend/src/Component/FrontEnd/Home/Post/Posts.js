@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import Table from "./Post";
-import classes from "./Tables.module.css";
-import Modals from "../../Modals/Modals";
-import { Card, Button, CardDeck } from "react-bootstrap";
-import Pic from "../../../../assets/images/plus.png";
+import { Card, Button, } from "react-bootstrap";
 
 export default class Tables extends Component {
   state = {
@@ -19,21 +15,7 @@ export default class Tables extends Component {
   };
   render() {
     return (
-      <div className={classes.Tables}>
-        <CardDeck>
-          <Card>
-            <Card.Header as="h5">Table 1</Card.Header>
-            <Card.Body>
-              <Card.Title>Customer {this.props.table.customer}/2</Card.Title>
-              <Button variant="primary" onClick={this.showmodalHandler}>
-                Detail
-              </Button>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "18rem" }} className={classes.NewTable}>
-            <Card.Img variant="top" src={Pic} />
-          </Card>
-        </CardDeck>
+      <div >
         <div
           style={{
             display: "flex",
@@ -54,17 +36,7 @@ export default class Tables extends Component {
         </Card>
         </div>
 
-        <Modals
-          show={this.state.showmodal}
-          onHide={this.showmodalCancelHandler}
-        >
-          <Table
-            onHide={this.showmodalCancelHandler}
-            add={this.props.customerAdd}
-            less={this.props.customerRemove}
-            table={this.props.table}
-          />
-        </Modals>
+        
       </div>
     );
   }
