@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 //import Modals from "../Modals/Modals";
 import classes from "./Write.module.css";
-import { Form } from "react-bootstrap";
+import { Form,Button } from "react-bootstrap";
 
 export default class Write extends Component {
  
@@ -35,6 +35,7 @@ export default class Write extends Component {
             <Form.Label>เนื้อหา</Form.Label>
             <Form.Control as="textarea" rows="3" />
           </Form.Group>
+          <Button variant="primary">โพส</Button>
         </Form>
       </div>
       

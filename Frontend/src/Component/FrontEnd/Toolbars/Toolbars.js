@@ -11,6 +11,7 @@ import Home from "../Home/Home";
 import Write from "../Write/Write";
 import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
+import Admin from "../Admin/Admin";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
 
@@ -48,7 +49,7 @@ export default function Toolbars() {
                     <DropdownButton id="dropdown-basic-button" title="Login">
                     <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                       <Dropdown.Item href="/login">Login</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Admin</Dropdown.Item>
+                    <Dropdown.Item href="/admin">Admin</Dropdown.Item>
                     </DropdownButton>
                   </div>
                 
@@ -61,6 +62,7 @@ export default function Toolbars() {
         <Route path="/write" component={Write} />
         <Route path="/profile" component={Profile} />
         <Route path="/login" component={Login} />
+        <Route path="/admin" component={Admin} />
       </div>
     </Router>
   );
