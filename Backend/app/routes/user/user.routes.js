@@ -8,7 +8,8 @@ const express = require('express')
     user.create({
       name: req.body.name,
       email:req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      role: req.body.role
     }).then((data)=>{
       res.status(200).send(data)
     }).catch((err)=>{
@@ -24,18 +25,34 @@ const express = require('express')
     res.status(500).send(err)
   })
  });
- 
 
   // Retrieve a single Tag with TagId
-  app.get("/user/:userId", (req, res)=>{
+  app.get("/login", (req, res)=>{
     user.findOne({
-      where: { uid: req.params.userId }
+      where: { name: req.query.name, password: req.query.password }
     }).then((data)=>{
-      res.status(200).send(data)
+      if(data){
+        res.status(200).send(data)
+      }else{
+        res.status(404).send({ message: 'not found'})
+      }
+      
     }).catch((err)=>{
+      console.log(err)
       res.status(500).send(err)
     })
   });
+
+    // Retrieve a single Tag with TagId
+    app.get("/user/:userId", (req, res)=>{
+      user.findOne({
+        where: { uid: req.params.userId }
+      }).then((data)=>{
+        res.status(200).send(data)
+      }).catch((err)=>{
+        res.status(500).send(err)
+      })
+    });
 
   // Delete a Post with PostId
   app.delete("/user/:userId", (req, res)=>{

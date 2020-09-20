@@ -4,7 +4,7 @@ import {
   Route,
   /*NavLink,
   Switch,
-  Redirect,*/
+  Redirect,<Dropdown.Item onClick={}>Logout</Dropdown.Item>*/
   BrowserRouter as Router,
 } from "react-router-dom";
 import Home from "../Home/Home";
@@ -12,8 +12,8 @@ import Write from "../Write/Write";
 import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
 import Admin from "../Admin/Admin";
+import Register from "../Register/Register";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-
 
 
 
@@ -45,12 +45,20 @@ export default function Toolbars() {
                       justifyContent: "center",
                       alignItems: "center",
                     }}
-                  >
-                    <DropdownButton id="dropdown-basic-button" title="Login">
-                    <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                      <Dropdown.Item href="/login">Login</Dropdown.Item>
-                    <Dropdown.Item href="/admin">Admin</Dropdown.Item>
+                  >{!localStorage.getItem('uid')
+                    ?<DropdownButton id="dropdown-basic-button"
+                     title="Login"
+                     >
+                    <Dropdown.Item href="/login">Login</Dropdown.Item>
+                    <Dropdown.Item href="/register">Register</Dropdown.Item>
                     </DropdownButton>
+                    :<DropdownButton id="dropdown-basic-button"
+                    title={localStorage.getItem('name')}
+                    >
+                   <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                   <Dropdown.Item href="/admin">Admin</Dropdown.Item>
+                   
+                   </DropdownButton>}
                   </div>
                 
                 
@@ -63,6 +71,7 @@ export default function Toolbars() {
         <Route path="/profile" component={Profile} />
         <Route path="/login" component={Login} />
         <Route path="/admin" component={Admin} />
+        <Route path="/register" component={Register} />
       </div>
     </Router>
   );

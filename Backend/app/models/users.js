@@ -17,6 +17,10 @@ module.exports = (sequelize, Sequelize)=>{
             type: Sequelize.STRING(40),
             allowNull: false
         },
+        role:{
+            type:Sequelize.INTEGER,
+            allowNull: false
+        }
     })
     return User
 }
