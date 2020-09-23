@@ -3,6 +3,7 @@ import { Card,ListGroup,ListGroupItem,Button } from "react-bootstrap";
 
 export default class EditMenu extends Component {
   
+    
   render() {
     return (
       <div style={{
@@ -15,7 +16,7 @@ export default class EditMenu extends Component {
         <Card  style={{ width: '80rem' }}>
   <Card />
   <Card.Body>
-    <Card.Title>User name</Card.Title>
+    <Card.Title>{localStorage.getItem('name')}</Card.Title>
     <Card.Text>
       เคยเขียนบทความมาแล้ว (จำนวนบทความ) บทความ
     </Card.Text>

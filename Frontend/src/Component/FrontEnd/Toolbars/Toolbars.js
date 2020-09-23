@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from 'react';
 import { Navbar, Nav,Form,FormControl,Button } from "react-bootstrap";
 import {
   Route,
@@ -18,7 +18,13 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 
 
 
-export default function Toolbars() {
+export default class Toolbars extends Component {
+  Logout = () =>{
+    localStorage.clear()
+}
+  render() {
+    
+  
   return (
     <Router>
       <div>
@@ -57,7 +63,7 @@ export default function Toolbars() {
                     >
                    <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                    <Dropdown.Item href="/admin">Admin</Dropdown.Item>
-                   <Dropdown.Item onClick={localStorage.clear()}>Logout</Dropdown.Item>
+                   <Dropdown.Item ><Button variant="light" onClick={this.Logout} >Log out</Button></Dropdown.Item>
                    
                    </DropdownButton>}
                   </div>
@@ -76,4 +82,5 @@ export default function Toolbars() {
       </div>
     </Router>
   );
+}
 }

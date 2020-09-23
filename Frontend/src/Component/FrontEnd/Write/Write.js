@@ -10,7 +10,7 @@ export default class Write extends Component {
     tag: '',
     tex: '',
     rank: 0,
-    uid:3//localStorage.getItem('uid')
+    uid:localStorage.getItem('uid')
   }
 
   handleSubmit = (e) => {
