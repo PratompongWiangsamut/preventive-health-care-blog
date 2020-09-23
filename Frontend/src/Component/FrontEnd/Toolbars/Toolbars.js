@@ -4,7 +4,7 @@ import {
   Route,
   /*NavLink,
   Switch,
-  Redirect,<Dropdown.Item onClick={}>Logout</Dropdown.Item>*/
+  Redirect,*/
   BrowserRouter as Router,
 } from "react-router-dom";
 import Home from "../Home/Home";
@@ -57,6 +57,7 @@ export default function Toolbars() {
                     >
                    <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                    <Dropdown.Item href="/admin">Admin</Dropdown.Item>
+                   <Dropdown.Item onClick={localStorage.clear()}>Logout</Dropdown.Item>
                    
                    </DropdownButton>}
                   </div>
