@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card,ListGroup,ListGroupItem,Button } from "react-bootstrap";
-import Posts from "../Home/Post/Posts";
+import Posts from "./Post/Posts";
 
 export default class EditMenu extends Component {
   

@@ -1,0 +1,13 @@
+.Tables {
+  width: 40rem;
+  border-radius: 0 0 30px 30px;
+  margin: 2%;
+}
+.Tables .NewTable {
+  cursor: pointer;
+}
+.Tables .NewTable:hover,
+.More:active {
+  border: 3px solid #3e48cc;
+  color: white;
+}
