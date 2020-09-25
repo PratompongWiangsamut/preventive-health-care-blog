@@ -26,7 +26,7 @@ const express = require('express')
   })
  });
 
-  // Retrieve a single Tag with TagId
+  // login
   app.get("/login", (req, res)=>{
     user.findOne({
       where: { name: req.query.name, password: req.query.password }
