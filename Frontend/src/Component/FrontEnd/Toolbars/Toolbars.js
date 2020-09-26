@@ -13,6 +13,7 @@ import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
 import Admin from "../Admin/Admin";
 import Register from "../Register/Register";
+import Tag from "../Tag/Tag"
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
 
@@ -21,6 +22,7 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 export default class Toolbars extends Component {
   Logout = () =>{
     localStorage.clear()
+    
 }
   render() {
     
@@ -35,10 +37,10 @@ export default class Toolbars extends Component {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
                 <DropdownButton id="dropdown-basic-button" title="แท็ก">
-                    <Dropdown.Item href="/profile">การกิน</Dropdown.Item>
-                    <Dropdown.Item href="#/action-1">การออกกำลังกาย</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">การพักผ่อน</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">การใช้ชีวิต</Dropdown.Item>
+                    <Dropdown.Item href={"/tag/การกิน"}>การกิน</Dropdown.Item>
+                    <Dropdown.Item href={"/tag/การออกกำลังกาย"}>การออกกำลังกาย</Dropdown.Item>
+                    <Dropdown.Item href={"/tag/การพักผ่อน"}>การพักผ่อน</Dropdown.Item>
+                    <Dropdown.Item href={"/tag/ความเสี่ยงโรค"}>ความเสี่ยงโรค</Dropdown.Item>
                     </DropdownButton>
                 <Form inline>
                   <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -79,6 +81,7 @@ export default class Toolbars extends Component {
         <Route path="/login" component={Login} />
         <Route path="/admin" component={Admin} />
         <Route path="/register" component={Register} />
+        <Route path="/tag" component={Tag} />
       </div>
     </Router>
   );

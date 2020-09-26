@@ -39,6 +39,20 @@
     res.status(500).send(err)
   })
  });
+
+ //เลือกโพสทั้งหมดที่มีแท็กเหมือนกัน
+ app.get("/posttag/:tag", (req, res)=>{
+  post.findAll(
+    {
+      where: { tag: req.params.tag }
+    }
+  ).then((data)=>{
+    res.status(200).send(data)
+  }).catch((err)=>{
+    res.status(500).send(err)
+  })
+ });
+
  
 
   // Retrieve a single Post with PostId

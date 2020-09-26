@@ -62,11 +62,10 @@ export default class Write extends Component {
           <Form.Group controlId="tag"  >
             <Form.Label>Tag</Form.Label>
             <Form.Control as="select" onChange={this.tag}>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option>การกิน</option>
+              <option>การออกกำลังกาย</option>
+              <option>การพักผ่อน</option>
+              <option>ความเสี่ยงโรค</option>
             </Form.Control >
           </Form.Group>
           <Form.Group controlId="tag">
