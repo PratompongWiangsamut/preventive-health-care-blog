@@ -26,6 +26,33 @@
     res.status(500).send(err)
   })
  });
+
+ //retrieve all post that post by user
+ app.get("/postuser/:uid", (req, res)=>{
+  post.findAll(
+    {
+      where: { uid: req.params.uid }
+    }
+  ).then((data)=>{
+    res.status(200).send(data)
+  }).catch((err)=>{
+    res.status(500).send(err)
+  })
+ });
+
+ //เลือกโพสทั้งหมดที่มีแท็กเหมือนกัน
+ app.get("/posttag/:tag", (req, res)=>{
+  post.findAll(
+    {
+      where: { tag: req.params.tag }
+    }
+  ).then((data)=>{
+    res.status(200).send(data)
+  }).catch((err)=>{
+    res.status(500).send(err)
+  })
+ });
+
  
 
   // Retrieve a single Post with PostId
