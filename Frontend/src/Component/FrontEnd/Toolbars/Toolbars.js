@@ -14,7 +14,9 @@ import Login from "../Login/Login";
 import Admin from "../Admin/Admin";
 import Register from "../Register/Register";
 import Tag from "../Tag/Tag"
+import Readpost from "../Readpost/Readpost";
 import { Dropdown, DropdownButton } from "react-bootstrap";
+
 
 
 
@@ -82,6 +84,7 @@ export default class Toolbars extends Component {
         <Route path="/admin" component={Admin} />
         <Route path="/register" component={Register} />
         <Route path="/tag" component={Tag} />
+        <Route path="/readpost" component={Readpost} />
       </div>
     </Router>
   );

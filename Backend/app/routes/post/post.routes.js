@@ -56,9 +56,9 @@
  
 
   // Retrieve a single Post with PostId
-  app.get("/post/:postId", (req, res)=>{
+  app.get("/postid/:pid", (req, res)=>{
     post.findOne({
-      where: { pid: req.params.postId }
+      where: { pid: req.params.pid }
     }).then((data)=>{
       res.status(200).send(data)
     }).catch((err)=>{
