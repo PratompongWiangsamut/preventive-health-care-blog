@@ -10,7 +10,8 @@ export default class Tables extends Component {
         comment: [],
         pid: null,
         detail: '',
-        uid: localStorage.getItem('uid')
+        uid: localStorage.getItem('uid'),
+        rate:''
     };
 
     handleSubmit = (e) => {
@@ -19,6 +20,7 @@ export default class Tables extends Component {
             pid: this.state.pid,
             detail: this.state.detail,
             uid: this.state.uid,
+            rate:this.state.rate
         };
         axios.post(
             "http://localhost:3000/api/comment/comment",
@@ -30,6 +32,9 @@ export default class Tables extends Component {
     detail = (e) => {
         this.setState({ detail: e.target.value })
     }
+    rate = (e) => {
+        this.setState({ rate: e.target.value })
+    }
 
     componentDidMount() {
         var url = window.location.href.split('/')[4]
@@ -39,9 +44,9 @@ export default class Tables extends Component {
             this.setState({ post: res.data })
             console.log('post-data: ', this.state.post)
             localStorage.setItem('pid', url)
-            
+
         })
-        this.setState({pid: url})
+        this.setState({ pid: url })
 
     }
 
@@ -89,6 +94,13 @@ export default class Tables extends Component {
                     <Card>
                         <Form>
                             <Form.Group controlId="comment">
+                                <Form.Control as="select" onChange={this.rate}>
+                                    <option>ให้คะแนน</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </Form.Control >
                                 <Form.Label>ความคิดเห็น</Form.Label>
                                 <Form.Control as="textarea" rows="3" onChange={this.detail} />
                             </Form.Group>
@@ -99,7 +111,9 @@ export default class Tables extends Component {
 
 
                 </div>
-                <Comments />
+                <Comments
+                    pid={this.state.pid}
+                />
 
             </div>
         );

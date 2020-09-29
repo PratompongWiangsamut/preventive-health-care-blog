@@ -9,6 +9,7 @@ const comment = db.comment
       detail: req.body.detail,
       pid:req.body.pid,
       uid:req.body.uid,
+      rate:req.body.rate,
     }).then((data)=>{
       res.status(200).send(data)
     }).catch((err)=>{

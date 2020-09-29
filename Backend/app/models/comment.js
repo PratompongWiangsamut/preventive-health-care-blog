@@ -8,6 +8,10 @@ module.exports = (sequelize, Sequelize)=>{
         detail: {
             type: Sequelize.STRING(40),
             allowNull: false
+        },
+        rate:{
+            type: Sequelize.DOUBLE,
+            allowNull: false
         }
     })
     return Comment

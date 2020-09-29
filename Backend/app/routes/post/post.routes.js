@@ -10,7 +10,8 @@
       title: req.body.title,
       tex:req.body.tex,
       rank: req.body.rank,
-      tag:req.body.tag
+      tag:req.body.tag,
+      report:req.body.report
     }).then((data)=>{
       res.status(200).send(data)
     }).catch((err)=>{

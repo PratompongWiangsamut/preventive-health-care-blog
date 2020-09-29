@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card,ListGroup,ListGroupItem,Button } from "react-bootstrap";
+import ProfilePost from '../Profile/ProfilePost/ProfilePost'
 
 export default class EditMenu extends Component {
   
@@ -24,7 +25,7 @@ export default class EditMenu extends Component {
   <ListGroup className="list-group-flush">
     <ListGroupItem>
       <div>
-        <Card className="text-center">
+        {/* <Card className="text-center">
           <Card.Header>บทความที่1</Card.Header>
           <Card.Body>
             <Card.Title>Special title treatment</Card.Title>
@@ -34,7 +35,8 @@ export default class EditMenu extends Component {
             <Button variant="primary">Read more</Button>
           </Card.Body>
           <Card.Footer className="text-muted">2 days ago</Card.Footer>
-        </Card>
+        </Card> */}
+        <ProfilePost/>
       </div>
     </ListGroupItem>
   </ListGroup>
