@@ -15,6 +15,7 @@ import Admin from "../Admin/Admin";
 import Register from "../Register/Register";
 import Tag from "../Tag/Tag"
 import Readpost from "../Readpost/Readpost";
+import Search from "../Search/Search"
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
 
@@ -26,6 +27,12 @@ export default class Toolbars extends Component {
     localStorage.clear()
     
 }
+  state={
+    title:''
+  }
+  title = (e) => {
+    this.setState({ title: e.target.value })
+  }
   render() {
     
   
@@ -45,8 +52,8 @@ export default class Toolbars extends Component {
                     <Dropdown.Item href={"/tag/ความเสี่ยงโรค"}>ความเสี่ยงโรค</Dropdown.Item>
                     </DropdownButton>
                 <Form inline>
-                  <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                   <Button variant="outline-success">Search</Button>
+                  <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.title}/>
+                   <Button variant="outline-success" href={"/search/"+this.state.title}>Search</Button>
                 </Form>
                 <Nav.Link href="/write">เขียนบทความ</Nav.Link>
                   <div
@@ -85,6 +92,7 @@ export default class Toolbars extends Component {
         <Route path="/register" component={Register} />
         <Route path="/tag" component={Tag} />
         <Route path="/readpost" component={Readpost} />
+        <Route path="/search" component={Search} />
       </div>
     </Router>
   );

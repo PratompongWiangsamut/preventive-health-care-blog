@@ -54,6 +54,19 @@
   })
  });
 
+ //เลือกโพสทั้งหมดที่มีแท็กเหมือนกัน
+ app.get("/search/:title", (req, res)=>{
+  post.findAll(
+    {
+      where: { title: req.params.title }
+    }
+  ).then((data)=>{
+    res.status(200).send(data)
+  }).catch((err)=>{
+    res.status(500).send(err)
+  })
+ });
+
  
 
   // Retrieve a single Post with PostId
