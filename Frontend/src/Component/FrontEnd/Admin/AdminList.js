@@ -13,7 +13,7 @@ export default class Tables extends Component {
   };
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/user/userrole/' + 2).then((res) => {
+    axios.get('http://localhost:3000/api/user/userrole/' + "Admin").then((res) => {
       console.log('pre-data: ', res.data)
       this.setState({ post: res.data })
       console.log('post-data: ', this.state.post)

@@ -29,6 +29,22 @@ export default class Tables extends Component {
         console.log(comment)
     }
 
+    reportpost = (e) => {
+        e.preventDefault()
+        console.log('pid',e.target.id)
+        //this.setState({ uid: e.target.id })
+        const deleteadmin = {
+          pid: e.target.id
+        };
+        axios.put(
+          "http://localhost:3000/api/post/report",
+          deleteadmin
+        );
+        console.log(deleteadmin)
+      }
+
+    
+
     detail = (e) => {
         this.setState({ detail: e.target.value })
     }
@@ -82,7 +98,7 @@ export default class Tables extends Component {
                             {this.state.post.tex}
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer className="text-muted">โดย {this.state.post.uid}</Card.Footer>
+                    <Card.Footer className="text-muted">โดย {this.state.post.uid} <Button variant="primary" id={this.state.post.uid} onClick={this.reportpost}>Report</Button></Card.Footer>
                 </Card>
 
                 <div style={{

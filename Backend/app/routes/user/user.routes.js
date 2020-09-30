@@ -63,7 +63,7 @@ app.put("/userupdaterole", (req, res) => {
     where: { uid: req.body.uid }
   }).then((data) => {
     data.update({
-      role: 2
+      role: "Admin"
     }).then((data)=>{
       res.status(200).send(data)
     }).catch((err) => {
@@ -81,7 +81,7 @@ app.put("/deleteadmin", (req, res) => {
     where: { uid: req.body.uid }
   }).then((data) => {
     data.update({
-      role: 1
+      role: "user"
     }).then((data)=>{
       res.status(200).send(data)
     }).catch((err) => {
