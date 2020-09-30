@@ -20,6 +20,10 @@ module.exports = (sequelize, Sequelize)=>{
         rank: {
             type: Sequelize.INTEGER,
             allowNull: false
+        },
+        report:{
+            type: Sequelize.INTEGER,
+            allowNull: false
         }
     })
     return Post

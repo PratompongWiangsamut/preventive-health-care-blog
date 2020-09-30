@@ -10,6 +10,7 @@ export default class Write extends Component {
     tag: '',
     tex: '',
     rank: 0,
+    report:0,
     uid:localStorage.getItem('uid')
   }
 
@@ -21,6 +22,7 @@ export default class Write extends Component {
       tex: this.state.tex,
       rank: this.state.rank,
       uid: this.state.uid,
+      report:this.state.report,
     };
     axios.post(
       "http://localhost:3000/api/post/post",
@@ -62,6 +64,7 @@ export default class Write extends Component {
           <Form.Group controlId="tag"  >
             <Form.Label>Tag</Form.Label>
             <Form.Control as="select" onChange={this.tag}>
+              <option>เลือกแท็ก</option>
               <option>การกิน</option>
               <option>การออกกำลังกาย</option>
               <option>การพักผ่อน</option>

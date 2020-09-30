@@ -9,7 +9,7 @@ export default class Register extends Component {
     email: '',
     name: '',
     password: '',
-    role: 1
+    role: 'user'
   }
 
   handleSubmit = (e) => {

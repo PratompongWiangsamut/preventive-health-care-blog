@@ -1,14 +1,15 @@
 const express = require('express')
 const app = express.Router()
-
-  const comment = require("../../controllers/comment.controller.js");
+const db = require('../../models/db')
+const comment = db.comment
 
   // Create a new comment
   app.post("/comment", (req, res)=>{
     comment.create({
-      pid:req.body.cid,
       detail: req.body.detail,
+      pid:req.body.pid,
       uid:req.body.uid,
+      rate:req.body.rate,
     }).then((data)=>{
       res.status(200).send(data)
     }).catch((err)=>{
@@ -25,10 +26,21 @@ const app = express.Router()
     })
    });
 
+   // Retrieve all comment that have same post
+  app.get("/commentpid/:pid", (req, res)=>{
+    comment.findAll({
+      where: { pid: req.params.pid }
+    }).then((data)=>{
+      res.status(200).send(data)
+    }).catch((err)=>{
+      res.status(500).send(err)
+    })
+   });
+
   // Retrieve a single comment with commentId
-  app.get("/comment/:commentId", (req, res)=>{
+  app.get("/commentf/:pid", (req, res)=>{
     comment.findOne({
-      where: { pid: req.params.commentId }
+      where: { pid: req.params.pid }
     }).then((data)=>{
       res.status(200).send(data)
     }).catch((err)=>{

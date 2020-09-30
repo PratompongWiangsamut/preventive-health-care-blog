@@ -5,14 +5,14 @@ import axios from 'axios'
 
 
 
-export default class Post extends Component {
+export default class ProfilePost extends Component {
   state = {
     showmodal: false,
     post: []
   };
 
   componentDidMount(){
-    axios.get('http://localhost:3000/api/post/post').then((res)=>{
+    axios.get('http://localhost:3000/api/post/postuser/'+localStorage.getItem('uid')).then((res)=>{
       console.log('pre-data: ', res.data)
       this.setState({post: res.data})
       console.log('post-data: ', this.state.post)
