@@ -81,9 +81,9 @@
   });
 
   // Delete a Post with PostId
-  app.delete("/post/:postId",(req, res)=>{
+  app.delete("/deletepost/:pid",(req, res)=>{
     post.destroy({
-      where: { pid: req.params.postId }
+      where: { pid: req.params.pid }
     }).then((data)=>{
       if(data == 1){
         res.status(200).send({message: "Delete success"})

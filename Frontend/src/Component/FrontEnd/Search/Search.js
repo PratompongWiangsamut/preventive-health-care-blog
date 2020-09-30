@@ -34,7 +34,7 @@ export default class Tag extends Component {
           <Card.Text>
             {item.tex}
           </Card.Text>
-          <Button variant="primary">Read more</Button>
+          <Button href={"/readpost/"+item.pid}>Read Post</Button>
         </Card.Body>
   <Card.Footer className="text-muted">{item.tag}</Card.Footer>
       </Card>

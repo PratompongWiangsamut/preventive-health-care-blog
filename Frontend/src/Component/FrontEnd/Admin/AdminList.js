@@ -22,8 +22,10 @@ export default class Tables extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log('uid',e.target.id)
+    //this.setState({ uid: e.target.id })
     const deleteadmin = {
-      uid: this.state.uid
+      uid: e.target.id
     };
     axios.put(
       "http://localhost:3000/api/user/deleteadmin",
@@ -31,6 +33,10 @@ export default class Tables extends Component {
     );
     console.log(deleteadmin)
   }
+
+  // clicksetstate=()=>{
+  //   this.setState({uid: item.uid})
+  // }
 
   showmodalHandler = () => {
     this.setState({ showmodal: true });
@@ -42,7 +48,7 @@ export default class Tables extends Component {
   render() {
     var posts = this.state.post.map((item) =>
       <Card className="text-center" key={item.uid}>
-        <Card.Header>ชื่อ:{item.name}/UID:{item.uid}/Role:{item.role}<Button variant="primary" onClick={this.handleSubmit}>ลบ</Button></Card.Header>
+        <Card.Header>ชื่อ:{item.name}/UID:{item.uid}/Role:{item.role}<Button variant="primary" id={item.uid} onClick={this.handleSubmit}>ลบ</Button></Card.Header>
         
         <Card.Footer className="text-muted" >{item.tag}</Card.Footer>
       </Card>
