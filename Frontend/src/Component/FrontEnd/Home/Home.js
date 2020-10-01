@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Posts from "./Post/Posts";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import Button from '@material-ui/core/Button';
 
 export default class Home extends Component {
 
@@ -15,10 +15,9 @@ export default class Home extends Component {
             alignItems: "center",
           }}
         >
-          <DropdownButton id="dropdown-basic-button" title="Sort button">
-            <Dropdown.Item href="#/action-1">บทความล่าสุด</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">บทความยอดนิยม</Dropdown.Item>
-          </DropdownButton>
+          <Button variant="contained" color="primary">
+            บทความยอดนิยม
+          </Button> 
         </div>
         <Posts/>
       </div>

@@ -63,6 +63,21 @@ const comment = db.comment
     })
   });
 
+  //AVG rate
+  app.get("/avg",(req,res)=>{
+    comment.findAll({
+      where:{pid:req.query.pid},
+      attributes: ['pid', [db.sequelize.fn('AVG', 
+      db.sequelize.col('rate')), 'ratingAvg']],
+      group: ['pid'],
+      order: [[db.sequelize.fn('AVG', db.sequelize.col('rate')), 'DESC']]
+  }).then((data)=>{
+    res.status(200).send(data)
+  }).catch((err)=>{
+    res.status(500).send(err)
+  })
+  })
+
   // Update a comment with customerId
   app.put("/comment/:commentId", (req, res)=>{
     comment.update({ detail: db.Sequelize.literal('edit') },{

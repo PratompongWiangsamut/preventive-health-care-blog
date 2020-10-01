@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Card, Form, Button } from "react-bootstrap";
+import { Card, Form } from "react-bootstrap";
 import axios from 'axios'
 import Comments from "../Readpost/Comment/Comment"
+import Button from '@material-ui/core/Button';
 
 export default class Tables extends Component {
     state = {
@@ -11,7 +12,8 @@ export default class Tables extends Component {
         pid: null,
         detail: '',
         uid: localStorage.getItem('uid'),
-        rate:''
+        rate:'',
+        avg:0
     };
 
     handleSubmit = (e) => {
@@ -62,6 +64,10 @@ export default class Tables extends Component {
             localStorage.setItem('pid', url)
 
         })
+        axios.get('http://localhost:3000/api/comment/avg?pid='+url).then((res)=>{
+            console.log('avg ', res.data[0].ratingAvg)
+            this.setState({avg:res.data[0].ratingAvg})
+        })
         this.setState({ pid: url })
 
     }
@@ -92,13 +98,13 @@ export default class Tables extends Component {
                     <Card.Body>
                         <Card.Title>ชื่อ: {this.state.post.title} </Card.Title>
                         <Card.Text>
-                            คะแนนเฉลี่ย: {this.state.post.rank} Tag {this.state.post.tag}
+                            คะแนนเฉลี่ย: {this.state.avg} Tag {this.state.post.tag}
                         </Card.Text>
                         <Card.Text>
                             {this.state.post.tex}
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer className="text-muted">โดย {this.state.post.uid} <Button variant="primary" id={this.state.post.uid} onClick={this.reportpost}>Report</Button></Card.Footer>
+                    <Card.Footer className="text-muted">โดย {this.state.post.uid} <Button variant="contained" color="secondary" id={this.state.post.uid} onClick={this.reportpost}>Report</Button></Card.Footer>
                 </Card>
 
                 <div style={{
@@ -120,7 +126,7 @@ export default class Tables extends Component {
                                 <Form.Label>ความคิดเห็น</Form.Label>
                                 <Form.Control as="textarea" rows="3" onChange={this.detail} />
                             </Form.Group>
-                            <Button variant="primary" onClick={this.handleSubmit} >comment</Button>
+                            <Button variant="contained"  onClick={this.handleSubmit} >comment</Button>
                         </Form>
                     </Card>
 

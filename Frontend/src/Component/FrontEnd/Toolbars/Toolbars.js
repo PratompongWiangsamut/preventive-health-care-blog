@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav,Form,FormControl,Button } from "react-bootstrap";
+import { Navbar, Nav,Form,FormControl} from "react-bootstrap";
 import {
   Route,
   /*NavLink,
@@ -17,6 +17,7 @@ import Tag from "../Tag/Tag"
 import Readpost from "../Readpost/Readpost";
 import Search from "../Search/Search"
 import { Dropdown, DropdownButton } from "react-bootstrap";
+import Button from '@material-ui/core/Button';
 
 
 
@@ -33,14 +34,19 @@ export default class Toolbars extends Component {
   title = (e) => {
     this.setState({ title: e.target.value })
   }
+
   render() {
-    
+    /*let AdminButton = !!localStorage.getItem('role')=='Admin' ? (
+      return <Dropdown.Item href="/admin">Admin</Dropdown.Item>
+    ):(
+      console.log('error ')
+    )*/
   
   return (
     <Router>
       <div>
         <header>
-          <Navbar bg="light" expand="lg">
+          <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="/home">Preventive Health Care Blog</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -53,14 +59,14 @@ export default class Toolbars extends Component {
                     </DropdownButton>
                 <Form inline>
                   <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.title}/>
-                   <Button variant="outline-success" href={"/search/"+this.state.title}>Search</Button>
+                   <Button variant="contained" href={"/search/"+this.state.title}>Search</Button>
                 </Form>
                 <Nav.Link href="/write">เขียนบทความ</Nav.Link>
                   <div
                     style={{
                       display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      justifyContent: "flex-end",
+                      alignItems: "flex-end",
                     }}
                   >{!localStorage.getItem('uid')
                     ?<DropdownButton id="dropdown-basic-button"
@@ -73,7 +79,12 @@ export default class Toolbars extends Component {
                     title={localStorage.getItem('name')}
                     >
                    <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                   <Dropdown.Item href="/admin">Admin</Dropdown.Item>
+                   {/* {localStorage.getItem('role')}                    */}
+                   {(localStorage.getItem('role')=='Admin')?(
+                      <Dropdown.Item href="/admin">Admin</Dropdown.Item>
+                    ):(
+                      <></>
+                    )}
                    <Dropdown.Item ><Button variant="light" onClick={this.Logout} >Log out</Button></Dropdown.Item>
                    
                    </DropdownButton>}

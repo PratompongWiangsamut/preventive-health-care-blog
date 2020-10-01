@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Button, Form } from "react-bootstrap";
+import {  Form } from "react-bootstrap";
 import axios from "axios";
-
+import Button from '@material-ui/core/Button';
 export default class Login extends Component {
   state = {
     name: '',
@@ -66,7 +66,7 @@ export default class Login extends Component {
             <Form.Group controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
-            <Button variant="primary" type="submit"onClick={this.handleSubmit}>
+            <Button variant="contained" color="primary" type="submit"onClick={this.handleSubmit}>
               Submit
             </Button>
           </Form>
