@@ -1,16 +1,11 @@
 import React, { Component } from "react";
-import { Card, ListGroup, ListGroupItem, Button, Dropdown, DropdownButton, Form } from "react-bootstrap";
-import {
-    Route,
-    /*NavLink,
-    Switch,
-    Redirect,*/
-    BrowserRouter as Router,
-} from "react-router-dom";
+import { Card, ListGroup, ListGroupItem, Form } from "react-bootstrap";
+
 
 import Demo from './AdminList';
 import Postreport from './Postreport';
 import axios from "axios";
+import Button from '@material-ui/core/Button';
 export default class Admin extends Component {
 
     statestate = {
@@ -58,7 +53,7 @@ export default class Admin extends Component {
                                     <Form.Label>เพิ่มแอดมิน</Form.Label>
                                     <Form.Control type="text" placeholder="ใส่ไอดีผู้ใช้ที่ต้องการเพิ่มเป็นแอดมิน" onChange={this.uid}/>
                                 </Form.Group>
-                                <Button variant="primary" onClick={this.handleSubmit}>
+                                <Button variant="contained" color="primary" onClick={this.handleSubmit}>
                                     เพิ่มแอดมิน
                                 </Button>
                             </Form>

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import { Card, Button, } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import axios from 'axios'
+import Button from '@material-ui/core/Button';
+// import Card from '@material-ui/core/Card';
+// import CardActions from '@material-ui/core/CardActions';
+// import CardContent from '@material-ui/core/CardContent';
 
 
 
@@ -36,7 +40,7 @@ export default class Post extends Component {
             {item.tex}
           </Card.Text>
       
-          <Button href={"/readpost/"+item.pid}>Read Post</Button>
+          <Button variant="contained" href={"/readpost/"+item.pid}>Read Post</Button>
           
           
         </Card.Body>

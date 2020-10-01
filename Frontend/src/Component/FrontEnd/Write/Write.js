@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 //import Modals from "../Modals/Modals";
 import classes from "./Write.module.css";
-import { Form,Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import axios from "axios";
+import Button from '@material-ui/core/Button';
 
 export default class Write extends Component {
   state = {
@@ -75,7 +76,12 @@ export default class Write extends Component {
             <Form.Label>เนื้อหา</Form.Label>
             <Form.Control as="textarea" rows="3" onChange={this.tex} />
           </Form.Group>
-          <Button variant="primary" onClick={this.handleSubmit}>โพส</Button>
+          {(localStorage.getItem('uid'))?(
+                      <Button variant="contained" color="primary" onClick={this.handleSubmit}>โพส</Button>
+                    ):(
+                      <>Pls login</>
+                    )}
+          {/* <Button variant="primary" onClick={this.handleSubmit}>โพส</Button> */}
         </Form>
       </div>
       

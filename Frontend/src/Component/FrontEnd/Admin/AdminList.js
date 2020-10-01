@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Card, Button, } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import axios from 'axios'
-
+import Button from '@material-ui/core/Button';
 
 
 
@@ -48,7 +48,7 @@ export default class Tables extends Component {
   render() {
     var posts = this.state.post.map((item) =>
       <Card className="text-center" key={item.uid}>
-        <Card.Header>ชื่อ:{item.name}/UID:{item.uid}/Role:{item.role}<Button variant="primary" id={item.uid} onClick={this.handleSubmit}>ลบ</Button></Card.Header>
+        <Card.Header>ชื่อ:{item.name}/UID:{item.uid}/Role:{item.role}<Button variant="contained" color="secondary" id={item.uid} onClick={this.handleSubmit}>ลบ</Button></Card.Header>
         
         <Card.Footer className="text-muted" >{item.tag}</Card.Footer>
       </Card>

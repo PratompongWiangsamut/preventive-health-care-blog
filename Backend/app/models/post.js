@@ -18,7 +18,7 @@ module.exports = (sequelize, Sequelize)=>{
             allowNull: false
         },
         rank: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DOUBLE,
             allowNull: false
         },
         report:{
