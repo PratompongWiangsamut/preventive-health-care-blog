@@ -18,8 +18,7 @@ import Readpost from "../Readpost/Readpost";
 import Search from "../Search/Search"
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import Button from '@material-ui/core/Button';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
+
 
 
 
@@ -55,7 +54,7 @@ export default class Toolbars extends Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
-                <DropdownButton id="dropdown-basic-button" title="แท็ก">
+                <DropdownButton id="dropdown-basic-button" title="แท็ก" variant="info" >
                     <Dropdown.Item href={"/tag/การกิน"}>การกิน</Dropdown.Item>
                     <Dropdown.Item href={"/tag/การออกกำลังกาย"}>การออกกำลังกาย</Dropdown.Item>
                     <Dropdown.Item href={"/tag/การพักผ่อน"}>การพักผ่อน</Dropdown.Item>
