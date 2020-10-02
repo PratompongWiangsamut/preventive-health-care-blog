@@ -18,6 +18,8 @@ import Readpost from "../Readpost/Readpost";
 import Search from "../Search/Search"
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import Button from '@material-ui/core/Button';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
 
 
 
@@ -34,6 +36,8 @@ export default class Toolbars extends Component {
   title = (e) => {
     this.setState({ title: e.target.value })
   }
+
+  
 
   render() {
     /*let AdminButton = !!localStorage.getItem('role')=='Admin' ? (
@@ -61,7 +65,11 @@ export default class Toolbars extends Component {
                   <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.title}/>
                    <Button variant="contained" href={"/search/"+this.state.title}>Search</Button>
                 </Form>
-                <Nav.Link href="/write">เขียนบทความ</Nav.Link>
+               
+                
+                
+              </Nav>
+              <Nav.Link href="/write">เขียนบทความ</Nav.Link>
                   <div
                     style={{
                       display: "flex",
@@ -85,13 +93,11 @@ export default class Toolbars extends Component {
                     ):(
                       <></>
                     )}
-                   <Dropdown.Item ><Button variant="light" onClick={this.Logout} >Log out</Button></Dropdown.Item>
+                   <Dropdown.Item onClick={this.Logout}>Log out</Dropdown.Item>
                    
                    </DropdownButton>}
                   </div>
-                
-                
-              </Nav>
+              
             </Navbar.Collapse>
           </Navbar>
         </header>
