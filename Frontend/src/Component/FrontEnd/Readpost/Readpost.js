@@ -65,10 +65,35 @@ export default class Tables extends Component {
 
         })
         axios.get('http://localhost:3000/api/comment/avg?pid='+url).then((res)=>{
-            console.log('avg ', res.data[0].ratingAvg)
-            this.setState({avg:res.data[0].ratingAvg})
+            //console.log(res);
+            //console.log('avg ', res.data[0].ratingAvg)
+            if(res.data.length > 0){
+                this.setState({avg:res.data[0].ratingAvg})
+                return res.data[0].ratingAvg
+            }
+            
+        }).then((data)=>{
+            if(data){
+        const uprank = {
+            pid: url,
+            rank: data,
+        };
+
+        axios.put('http://localhost:3000/api/post/rank',uprank );
+        console.log("uprank",uprank)
+        console.log("rankpid:",this.state.avg)
+    }
         })
         this.setState({ pid: url })
+
+        // const uprank = {
+        //     pid: url,
+        //     rank: this.state.avg,
+        // };
+
+        // axios.put('http://localhost:3000/api/post/rank',uprank );
+        // console.log("uprank",uprank)
+        // console.log("rankpid:",this.state.avg)
 
     }
 

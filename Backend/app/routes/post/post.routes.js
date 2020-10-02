@@ -28,6 +28,18 @@ app.get("/post", (req, res) => {
   })
 });
 
+// Retrieve all Post
+app.get("/sort", (req, res) => {
+  post.findAll(
+   {order: [['rank' ,'DESC']]} 
+  ).then((data) => {
+    res.status(200).send(data)
+  }).catch((err) => {
+    res.status(500).send(err)
+  })
+});
+
+
 //retrieve all post that post by user
 app.get("/postuser/:uid", (req, res) => {
   post.findAll(
@@ -122,6 +134,24 @@ app.get("/reportlist/:report", (req, res) => {
   ).then((data) => {
     res.status(200).send(data)
   }).catch((err) => {
+    res.status(500).send(err)
+  })
+});
+
+//update rank
+app.put("/rank", (req, res) => {
+  post.findOne({
+    where: { pid: req.body.pid }
+  }).then((data) => {
+    data.update({
+      rank: req.body.rank
+    }).then((data) => {
+      res.status(200).send(data)
+    }).catch((err) => {
+      res.status(500).send(err)
+    })
+  }).catch((err) => {
+    console.log(err)
     res.status(500).send(err)
   })
 });
