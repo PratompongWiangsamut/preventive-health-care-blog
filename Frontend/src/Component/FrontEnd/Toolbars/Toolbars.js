@@ -20,7 +20,7 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
-
+import * as Icon from "react-bootstrap-icons";
 
 
 
@@ -56,20 +56,20 @@ export default class Toolbars extends Component {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
                 <DropdownButton id="dropdown-basic-button" title="แท็ก">
-                    <Dropdown.Item href={"/tag/การกิน"}>การกิน</Dropdown.Item>
-                    <Dropdown.Item href={"/tag/การออกกำลังกาย"}>การออกกำลังกาย</Dropdown.Item>
-                    <Dropdown.Item href={"/tag/การพักผ่อน"}>การพักผ่อน</Dropdown.Item>
-                    <Dropdown.Item href={"/tag/ความเสี่ยงโรค"}>ความเสี่ยงโรค</Dropdown.Item>
+                    <Dropdown.Item href={"/tag/การกิน"}><Icon.CupStraw/> การกิน</Dropdown.Item>
+                    <Dropdown.Item href={"/tag/การออกกำลังกาย"}><Icon.Bicycle/> การออกกำลังกาย</Dropdown.Item>
+                    <Dropdown.Item href={"/tag/การพักผ่อน"}><Icon.Moon/> การพักผ่อน</Dropdown.Item>
+                    <Dropdown.Item href={"/tag/ความเสี่ยงโรค"}><Icon.ExclamationCircle/> ความเสี่ยงโรค</Dropdown.Item>
                     </DropdownButton>
                 <Form inline>
                   <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.title}/>
-                   <Button variant="contained" href={"/search/"+this.state.title}>Search</Button>
+                   <Button variant="contained" href={"/search/"+this.state.title}>Search <Icon.Search/></Button>
                 </Form>
                
                 
                 
               </Nav>
-              <Nav.Link href="/write">เขียนบทความ</Nav.Link>
+              <Nav.Link href="/write"><Icon.PencilSquare/>เขียนบทความ</Nav.Link>
                   <div
                     style={{
                       display: "flex",

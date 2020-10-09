@@ -15,7 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 
-const useStyles = makeStyles((theme) => ({
+/*const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+*/
 
 export default class Login extends Component {
   state = {
@@ -39,7 +40,7 @@ export default class Login extends Component {
     role: ''
   }
 
-  const classes = useStyles();
+  //const classes = useStyles();
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -60,6 +61,7 @@ export default class Login extends Component {
       console.log(this.state.name)
     });
     console.log(register)
+    //window.location.reload()
   }
 
 
@@ -73,7 +75,7 @@ export default class Login extends Component {
 
   render() {
     return (
-
+/*
       <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -124,21 +126,22 @@ export default class Login extends Component {
       <Box mt={8}>
       </Box>
     </Container>
-
-      /*
+*/
+      
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          backgroundColor: "#00fbff",
         }}
       >
         <div >
 
           <Form>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>User name</Form.Label>
-              <Form.Control type="text" placeholder="Enter UserName" onChange={this.name}/>
+            <Form.Group controlId="formBasicName">
+              <Form.Label>Username</Form.Label>
+              <Form.Control type="text" placeholder="Username" onChange={this.name}/>
               <Form.Text className="text-muted">
                 </Form.Text>
             </Form.Group>
@@ -151,13 +154,13 @@ export default class Login extends Component {
               <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
             <Button variant="contained" color="primary" type="submit"onClick={this.handleSubmit}>
-              Submit
+              Login
             </Button>
           </Form>
         </div>
 
       </div>
-      */
+      
     );
   }
 }

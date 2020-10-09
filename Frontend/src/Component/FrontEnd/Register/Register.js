@@ -13,7 +13,7 @@ import Link from '@material-ui/core/Link';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 
-const useStyles = makeStyles((theme) => ({
+/*const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+*/
 export default class Register extends Component {
   state = {
     email: '',
@@ -72,7 +73,7 @@ export default class Register extends Component {
 
   render() {
     return (
-
+/*
       <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -152,29 +153,34 @@ export default class Register extends Component {
         <Copyright />
       </Box>
     </Container>
-    
-      /*
+    */
+      
       <div
         style={{
+          //flex: 1,
+          //width: 500,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          height: "100%",
+          backgroundColor: "#00fbff",
         }}
       >
         <div >
-
+          
           <Form>
+            
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" onChange={this.email}/>
+              <Form.Control type="email" placeholder="Email" onChange={this.email}/>              
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
                 </Form.Text>
             </Form.Group>
 
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>User name</Form.Label>
-              <Form.Control type="text" placeholder="User name" onChange={this.name}/>
+            <Form.Group controlId="formBasicName">
+              <Form.Label>Username</Form.Label>
+              <Form.Control type="text" placeholder="Username" onChange={this.name}/>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
@@ -189,7 +195,7 @@ export default class Register extends Component {
         </div>
 
       </div>
-      */
+      
     );
 
   }
