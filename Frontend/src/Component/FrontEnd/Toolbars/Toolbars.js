@@ -86,10 +86,10 @@ export default class Toolbars extends Component {
                     :<DropdownButton id="dropdown-basic-button"
                     title={localStorage.getItem('name')}
                     >
-                   <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                   <Dropdown.Item href="/profile"><Icon.PersonCircle/>Profile</Dropdown.Item>
                    {/* {localStorage.getItem('role')}                    */}
                    {(localStorage.getItem('role')=='Admin')?(
-                      <Dropdown.Item href="/admin">Admin</Dropdown.Item>
+                      <Dropdown.Item href="/admin"><Icon.Screwdriver/>Admin</Dropdown.Item>
                     ):(
                       <></>
                     )}
