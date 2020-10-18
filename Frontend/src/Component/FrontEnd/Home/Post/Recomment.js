@@ -7,24 +7,18 @@ export default class Tag extends Component {
   state = {
     showmodal: false,
     post: [],
-    tag:''
+    tag:localStorage.getItem('tag')
   };
 
   componentDidMount(){
-    var url = window.location.href.split('/')[4]
-    console.log('asfasf', url)
-    axios.get('http://localhost:3000/api/post/posttag/'+url).then((res)=>{
+    axios.get('http://localhost:3000/api/post/posttag/'+localStorage.getItem('tag')).then((res)=>{
       console.log('pre-data: ', res.data)
       this.setState({post: res.data})
       console.log('post-data: ', this.state.post)
       
     })
     
-    axios.get('http://localhost:3000/api/post/tag/'+url).then((res)=>{
-      console.log('pretag:',res.data)
-      this.setState({tag: res.data.tag})
-      console.log('tag666:',this.state.tag)
-    })
+
 
   }
 
@@ -62,7 +56,7 @@ export default class Tag extends Component {
         
         </div>
         <Card style={{flex:1, backgroundColor:'#F8F9F5'}}>
-        <Card.Header><ArrowRightIcon/>{this.state.tag}</Card.Header>
+        
         <div
            style={{
             display: "flex",

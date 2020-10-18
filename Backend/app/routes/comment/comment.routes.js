@@ -48,6 +48,17 @@ const comment = db.comment
     })
   });
 
+  // Retrieve a single comment with commentId
+  app.get("/recomment/:uid", (req, res)=>{
+    comment.findOne({
+      where: { uid: req.params.uid }
+    }).then((data)=>{
+      res.status(200).send(data)
+    }).catch((err)=>{
+      res.status(500).send(err)
+    })
+  });
+
   // Delete a comment with commentId
   app.delete("/comment/:commentId", (req, res)=>{
     comment.destroy({
@@ -71,6 +82,22 @@ const comment = db.comment
       db.sequelize.col('rate')), 'ratingAvg']],
       group: ['pid'],
       order: [[db.sequelize.fn('AVG', db.sequelize.col('rate')), 'DESC']]
+  }).then((data)=>{
+    res.status(200).send(data)
+  }).catch((err)=>{
+    res.status(500).send(err)
+  })
+  })
+
+  //AVG rate new
+  app.get("/newavg",(req,res)=>{
+    comment.findAll({
+      limit: 2,
+      where:{pid:req.query.pid},
+      attributes: ['pid', [db.sequelize.fn('AVG', 
+      db.sequelize.col('rate')), 'ratingAvg']],
+      group: ['pid'],
+      order: [[db.sequelize.fn('AVG', db.sequelize.col('createdAt')), 'DESC']]
   }).then((data)=>{
     res.status(200).send(data)
   }).catch((err)=>{

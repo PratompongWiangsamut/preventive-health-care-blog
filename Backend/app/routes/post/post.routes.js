@@ -20,8 +20,22 @@ app.post("/post", (req, res) => {
 });
 
 // Retrieve all Post
-app.get("/post", (req, res) => {
-  post.findAll().then((data) => {
+app.get("/post", (req, res,) => {
+  post.findAll(
+    {order: [['createdAt' ,'DESC']]} 
+  ).then((data) => {
+    res.status(200).send(data)
+  }).catch((err) => {
+    res.status(500).send(err)
+  })
+}
+);
+
+// Retrieve all Post
+app.get("/sort", (req, res) => {
+  post.findAll(
+   {order: [['rank' ,'DESC']]} 
+  ).then((data) => {
     res.status(200).send(data)
   }).catch((err) => {
     res.status(500).send(err)
@@ -29,9 +43,12 @@ app.get("/post", (req, res) => {
 });
 
 // Retrieve all Post
-app.get("/sort", (req, res) => {
+app.get("/recomment", (req, res) => {
   post.findAll(
-   {order: [['rank' ,'DESC']]} 
+   {
+     where:{ tag: req.params.tag },
+    // order: [['rank' ,'DESC']]
+    } 
   ).then((data) => {
     res.status(200).send(data)
   }).catch((err) => {
@@ -71,6 +88,19 @@ app.get("/search/:title", (req, res) => {
   post.findAll(
     {
       where: { title: req.params.title }
+    }
+  ).then((data) => {
+    res.status(200).send(data)
+  }).catch((err) => {
+    res.status(500).send(err)
+  })
+});
+
+//หาแท็กจากแท็กไอดี
+app.get("/tag/:tag", (req, res) => {
+  post.findOne(
+    {
+      where: { tag: req.params.tag }
     }
   ).then((data) => {
     res.status(200).send(data)

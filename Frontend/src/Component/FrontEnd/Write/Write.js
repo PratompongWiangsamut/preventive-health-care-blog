@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 //import Modals from "../Modals/Modals";
 import classes from "./Write.module.css";
-import { Form } from "react-bootstrap";
+import { Form,Card } from "react-bootstrap";
 import axios from "axios";
 import Button from '@material-ui/core/Button';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 export default class Write extends Component {
   state = {
@@ -48,15 +49,20 @@ export default class Write extends Component {
     
 
     return (
+      <div>
+         <Card style={{flex:1, backgroundColor:'#F8F9F5'}}>
+        <Card.Header><ArrowRightIcon/>เขียนโพส</Card.Header>
+      
       <div
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            backgroundColor:'#ffffff'
           }}
         >
       <div className={classes.Status}>
-        
+     
         <Form>
           <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>ชื่อเรื่อง</Form.Label>
@@ -83,8 +89,11 @@ export default class Write extends Component {
                     )}
           {/* <Button variant="primary" onClick={this.handleSubmit}>โพส</Button> */}
         </Form>
+    
       </div>
       
+      </div>
+      </Card>
       </div>
     );
     
