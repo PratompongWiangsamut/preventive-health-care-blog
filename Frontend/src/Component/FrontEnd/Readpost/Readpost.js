@@ -148,6 +148,7 @@ export default class Tables extends Component {
                                     <option>2</option>
                                     <option>3</option>
                                     <option>4</option>
+                                    <option>5</option>
                                 </Form.Control >
                                 <Form.Label>ความคิดเห็น</Form.Label>
                                 <Form.Control as="textarea" rows="3" onChange={this.detail} />
