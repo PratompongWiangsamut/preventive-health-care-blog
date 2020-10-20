@@ -1,9 +1,17 @@
 const express = require("express");
+const cors = require('cors')
 const bodyParser = require("body-parser");
 const API = require('./app/routes/index')
 const db = require('./app/models/db')
 
 const app = express();
+var corsOption = {
+  origin: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  exposedHeaders: ['x-auth-token']
+};
+app.use(cors(corsOption));
 
 db.sequelize.sync({force: false}).then(()=>{
   console.log('Drop and Resync: false')
