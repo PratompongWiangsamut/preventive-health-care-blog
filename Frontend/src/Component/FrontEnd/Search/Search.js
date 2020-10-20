@@ -27,7 +27,7 @@ export default class Tag extends Component {
   };
   render() {
     var posts = this.state.post.map((item)=>
-    <Card className="text-center" key={item.pid}>
+    <Card className="text-center" style={{ width: '50rem', border: "3px solid lightgrey", borderRadius: "10px", margin: "5px", }} key={item.pid}>
         <Card.Header>Featured</Card.Header>
         <Card.Body>
           <Card.Title>{item.title}</Card.Title>
@@ -51,8 +51,19 @@ export default class Tag extends Component {
         >
         
         </div>
-
-        {posts}
+        <div
+           style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            {posts}
+          </div>
+          
+        </div>
+        
       </div>
     );
   }

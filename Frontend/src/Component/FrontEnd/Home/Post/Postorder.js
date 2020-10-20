@@ -10,58 +10,48 @@ import Button from '@material-ui/core/Button';
 
 
 export default class Post extends Component {
-  state = {
-    showmodal: false,
-    post: []
-  };
+    state = {
+        showmodal: false,
+        post: []
+    };
 
-  componentDidMount(){
-    axios.get('http://localhost:3000/api/post/sort').then((res)=>{
-      console.log('pre-data: ', res.data)
-      this.setState({post: res.data})
-      console.log('post-data: ', this.state.post)
-    })
-  }
+    componentDidMount() {
+        axios.get('http://localhost:3000/api/post/sort').then((res) => {
+            console.log('pre-data: ', res.data)
+            this.setState({ post: res.data })
+            console.log('post-data: ', this.state.post)
+        })
+    }
 
-  showmodalHandler = () => {
-    this.setState({ showmodal: true });
-  };
+    showmodalHandler = () => {
+        this.setState({ showmodal: true });
+    };
 
-  showmodalCancelHandler = () => {
-    this.setState({ showmodal: false });
-  };
-  render() {
-    var posts = this.state.post.map((item)=>
-    <Card className="text-center" key={item.pid}>
-        <Card.Header>Featured{item.title}</Card.Header>
-        <Card.Body>
-          <Card.Title>{item.title}</Card.Title>
-          <Card.Text>
-            {item.tex}
-          </Card.Text>
-      
-          <Button variant="contained" href={"/readpost/"+item.pid}>Read Post</Button>
-          
-          
-        </Card.Body>
-  <Card.Footer className="text-muted">{item.tag}</Card.Footer>
-      </Card>
-  
-    )
-    return (
-      <div >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-        
-        </div>
+    showmodalCancelHandler = () => {
+        this.setState({ showmodal: false });
+    };
+    render() {
+        var posts = this.state.post.map((item) =>
+            <Card className="text-center" style={{ width: '50rem', border: "3px solid lightgrey", borderRadius: "10px", margin: "5px", }} key={item.pid}>
+                <Card.Header>คะแนนเฉลี่ย:{item.rank}</Card.Header>
+                <Card.Body>
+                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Text>
+                       
+                    </Card.Text>
 
-        {posts}
-      </div>
-    );
-  }
+                    <Button variant="contained" href={"/readpost/" + item.pid}>Read Post</Button>
+
+
+                </Card.Body>
+                <Card.Footer className="text-muted">{item.tag}</Card.Footer>
+            </Card>
+
+        )
+        return (
+            <div >
+                {posts}
+            </div>
+        );
+    }
 }

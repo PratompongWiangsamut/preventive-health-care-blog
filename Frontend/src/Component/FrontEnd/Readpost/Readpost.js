@@ -3,6 +3,7 @@ import { Card, Form } from "react-bootstrap";
 import axios from 'axios'
 import Comments from "../Readpost/Comment/Comment"
 import Button from '@material-ui/core/Button';
+import ReportIcon from '@material-ui/icons/Report';
 
 export default class Tables extends Component {
     state = {
@@ -42,7 +43,7 @@ export default class Tables extends Component {
           "http://localhost:3000/api/post/report",
           deleteadmin
         );
-        console.log(deleteadmin)
+        console.log('pidreport:',deleteadmin)
       }
 
     
@@ -129,7 +130,7 @@ export default class Tables extends Component {
                             {this.state.post.tex}
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer className="text-muted">โดย {this.state.post.uid} <Button variant="contained" color="secondary" id={this.state.post.uid} onClick={this.reportpost}>Report</Button></Card.Footer>
+                    <Card.Footer className="text-muted">โดย {this.state.post.uid} <Button variant="contained" color="secondary" id={this.state.post.pid} onClick={this.reportpost}><ReportIcon/></Button></Card.Footer>
                 </Card>
 
                 <div style={{
@@ -147,6 +148,7 @@ export default class Tables extends Component {
                                     <option>2</option>
                                     <option>3</option>
                                     <option>4</option>
+                                    <option>5</option>
                                 </Form.Control >
                                 <Form.Label>ความคิดเห็น</Form.Label>
                                 <Form.Control as="textarea" rows="3" onChange={this.detail} />
