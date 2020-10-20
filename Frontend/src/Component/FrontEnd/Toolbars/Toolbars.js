@@ -18,9 +18,19 @@ import Readpost from "../Readpost/Readpost";
 import Search from "../Search/Search"
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import Button from '@material-ui/core/Button';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import * as Icon from "react-bootstrap-icons";
+
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import FastfoodIcon from '@material-ui/icons/Fastfood';
+import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import HotelIcon from '@material-ui/icons/Hotel';
+import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
+import LibraryBooksOutlinedIcon from '@material-ui/icons/LibraryBooksOutlined';
+
+
 
 
 
@@ -55,15 +65,17 @@ export default class Toolbars extends Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
-                <DropdownButton id="dropdown-basic-button" title="แท็ก">
-                    <Dropdown.Item href={"/tag/การกิน"}><Icon.CupStraw/> การกิน</Dropdown.Item>
-                    <Dropdown.Item href={"/tag/การออกกำลังกาย"}><Icon.Bicycle/> การออกกำลังกาย</Dropdown.Item>
-                    <Dropdown.Item href={"/tag/การพักผ่อน"}><Icon.Moon/> การพักผ่อน</Dropdown.Item>
-                    <Dropdown.Item href={"/tag/ความเสี่ยงโรค"}><Icon.ExclamationCircle/> ความเสี่ยงโรค</Dropdown.Item>
+
+                <DropdownButton id="dropdown-basic-button" title="แท็ก" variant="info" >
+                    <Dropdown.Item href={"/tag/การกิน"}><FastfoodIcon/>การกิน</Dropdown.Item>
+                    <Dropdown.Item href={"/tag/การออกกำลังกาย"}><DirectionsRunIcon/>การออกกำลังกาย</Dropdown.Item>
+                    <Dropdown.Item href={"/tag/การพักผ่อน"}><HotelIcon/>การพักผ่อน</Dropdown.Item>
+                    <Dropdown.Item href={"/tag/ความเสี่ยงโรค"}><LocalHospitalIcon/>ความเสี่ยงโรค</Dropdown.Item>
                     </DropdownButton>
                 <Form inline>
                   <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.title}/>
-                   <Button variant="contained" href={"/search/"+this.state.title}>Search <Icon.Search/></Button>
+                   <Button variant="contained" href={"/search/"+this.state.title}><SearchOutlinedIcon/></Button>
+
                 </Form>
                
                 
@@ -78,25 +90,31 @@ export default class Toolbars extends Component {
                     }}
                   >{!localStorage.getItem('uid')
                     ?<DropdownButton id="dropdown-basic-button"
-                     title="Login"
+                     title={<AccountCircleIcon/>}
+                     variant="secondary"
                      >
-                    <Dropdown.Item href="/login">Login</Dropdown.Item>
-                    <Dropdown.Item href="/register">Register</Dropdown.Item>
+                    <Dropdown.Item href="/login" ><LockOpenOutlinedIcon/>Login</Dropdown.Item>
+                    <Dropdown.Item href="/register"><LibraryBooksOutlinedIcon/>Register</Dropdown.Item>
                     </DropdownButton>
                     :<DropdownButton id="dropdown-basic-button"
-                    title={localStorage.getItem('name')}
+                    title={localStorage.getItem('name')} 
+                    variant="secondary"
                     >
-                   <Dropdown.Item href="/profile"><Icon.PersonCircle/>Profile</Dropdown.Item>
+
+                   <Dropdown.Item href="/profile"><AccountCircleIcon/>Profile</Dropdown.Item>
                    {/* {localStorage.getItem('role')}                    */}
                    {(localStorage.getItem('role')=='Admin')?(
-                      <Dropdown.Item href="/admin"><Icon.Screwdriver/>Admin</Dropdown.Item>
+                      <Dropdown.Item href="/admin"><SupervisorAccountIcon/>Admin</Dropdown.Item>
+
                     ):(
                       <></>
                     )}
-                   <Dropdown.Item onClick={this.Logout}>Log out</Dropdown.Item>
+                   <Dropdown.Item onClick={this.Logout}><MeetingRoomIcon/>Logout</Dropdown.Item>
                    
                    </DropdownButton>}
                   </div>
+                  <Button variant="contained" color="primary" >ทำแบบสอบถาม</Button>
+                  
               
             </Navbar.Collapse>
           </Navbar>
